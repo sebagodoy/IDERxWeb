@@ -1,0 +1,128 @@
+<head>
+   <link rel="stylesheet" type="text/css" href="../WebFiles/style.css">
+</head>
+
+<body>
+   <div class="header">
+       <div class="LateralBox">
+           <img src="../WebFiles/Logo.png" alt="My own project logo" style="margin-bottom:10px">
+           <a href="../index.html"><div class="LateralList">Home & Tools</div></a>
+           <div class="LateralList">IDERx enviroment</div>
+           <div class="ThisLateralList"> &#x25B6 Tips & external resources</div>
+                <a href="#Tips">        <div class="LateralSubList">General advice</div></a>
+                <a href="#Software">    <div class="LateralSubList">Recomended free software</div></a>
+                <a href="#Restrict">    <div class="LateralSubList">Theory backgrounds</div></a>
+
+           <div style="margin-bottom:40px"></div>
+           <a href="https://github.com/sebagodoy/IDERx"><div class="LateralList">GitHub repository</div></a>
+           <a href="https://sites.google.com/view/carbocatudec"><div class="LateralList">CarboCat ressearch group</div></a>
+
+       </div>
+
+        <div class="content"><!-- block interno -->
+
+            <h1>Tips & external resources </h1>
+
+            <!-- ################################ General advice ################################ -->
+            <h3 id="Tips"> &#x25B6 General advice </h3>
+
+
+            <!-- Add tools to path -->
+            <div class="text">
+                &#x25AC To use the codes in "Home & Tools" (in ubuntu) and the Tracker in "IDERx": clone or download the files in a local folder and add
+                that folder to the path, for that, just add the line
+                <div class="code">export PATH="/home/my_local_folder_with_the_codes"</div>
+                to the <code>.bashrc</code> hidden file usually located in the home folder in ubuntu, which you can edit using any text editor, for
+                example from the terminal <code>gedit ~/.bashrc</code>.
+            </div>
+
+            <!-- rsync -->
+            <div class="text">
+                &#x25AC For sending and receiving multiple and large files to a remote location (such as account@cluster.com/folder/ in a cluster)
+                <code>rsync -azvP</code> is good option in terms of speed and
+                clarity. Opening a terminal from a local folder, files will can be "sincronized" with the remote folder with
+                <code>rsync -azvP send_direction/ receiving_direction/</code> where the sender and receiving direction may be local (e.g. <code>./local_folder</code>)
+                or remote directions (e.g. <code>user@cluster.direction.com:/my_folders/</code>). Ending the sending direction in <code>/</code> only the contents of
+                the folder will be considered, without it the folder and itts contents will be syncronized.<br>
+                Multiple <code>--exclude 'FileName'</code> options after the <code>-azvP</code> allow to sincronize all files and folders except
+                the specified <code>'FileName'</code>. It is extremelly useful for downloading all folders and
+                files of a neb run except the larger CHG, CHGCAR and WAVECAR using a wildcard filedirection, i.e.
+            <div class="code"> $ rsync -azvP --exclude '*/CHG*' --exclude '*/WAVECAR' user@cluster.com:/folder/ ./ </div>
+            </div>
+
+            <!-- ls -la -h -->
+            <div class="text">
+                &#x25AC To check empty files: <code>ls -la -h</code>. The <code>-la</code> option will also list all hiden files (starting with a dot)
+                and the <code>-h</code> will show file sizes in "human readable" units (Kb, Mb, Bg instead of... millions) wich is usefull to see if
+                you actually wrote that WAVECAR to continue a new job.
+            </div>
+
+            <!-- Folder sizes -->
+            <div class="text">
+                &#x25AC To check folder sizes: <code>du -h --max-depth=1 | sort -h</code> will list in ascending order the folder sizes in the
+                current directory. Usefull if you are running low on space.
+            </div>
+
+
+
+
+            <!-- Space between sections -->
+            <div style="margin-bottom:40px"></div>
+
+
+
+
+            <!-- ################################ Tips ################################ -->
+            <h3 id="Software"> &#x25B6 Recomended free software</h3>
+
+            <!-- VESTA -->
+            <div class="text">
+                &#x25AC VESTA (link <u><a href="https://jp-minerals.org/vesta/en/">here</a></u>) of JPMinerals is very useful free visualization tool
+                to quickly check VASP geometries. It is specially usefull to directly open various POSCAR or CONTCAR files invokig VESTA from a therminal
+                in the working folder with <code>$ VESTA POSCAR CONTCAR</code>. If VESTA is not already open, both files will open in the same VESTA window.
+                This is particularly usefull to open all structures in a neb calculation, for wich there is a tool in this repository.
+                Keep in mind that it only accepts files named POSCAR or CONTCAR
+            </div>
+            <!-- vmd -->
+            <div class="text">
+                &#x25AC The Visual Molecular Dynamics (VMD, link <u><a href="https://www.ks.uiuc.edu/Research/vmd/">here</a></u>) of the Theoretical and
+                Biophysics group of the University of Illinois is a great free tool to render publication-grade images of molecular models. It is particularly
+                usefull to visualize and edit superimposed models of a neb calculation. Keep in mind that it needs a POTCAR file in the same directory of the
+                POSCAR/CONTCAR/CENTCAR file to get information on the atomic types.
+                <br>
+                The initial representation settings in VMD are controlled by a a file <code>.vdmrc</code>  where custom options can be added  to save a lot of
+                time. For linux, it is located in <code>/usr/local/lib/vmd</code>. Some configurations I use
+                <div class="code">
+                    display depthcue off <br>
+                    color Display Background white <br>
+                    display projection orthographic <br>
+                    mol default style CPK <br>
+                    mol default color Element <br>
+                </div>
+                Keep in mind that most of this setting and other tasks can be done from the therminal that invoqued vmd.
+                Try <code>pbc box</code> to see the periodic boundary limits of the cell.
+            </div>
+
+            <!-- p4vasp -->
+            <div class="text">
+                &#x25AC p4vasp (link <u><a href="http://www.p4vasp.at/#/">here</a></u> ) is another useful free visualization tool, although I only use it to review the
+                progress of geometric convergences opening the <code>vasp.xml</code> file and looking at Convergence>Energy and Convergence> Selected forces.
+            </div>
+
+            <!-- Jmol -->
+            <div class="text">
+                &#x25AC JMol (link <u><a href="http://jmol.sourceforge.net/">here</a></u> ) is a free tool that can open the <code>vasp.xml</code> file of a frequency calculation and show animations of the individual
+                modes of vibration found.
+            </div>
+
+
+
+
+      </div><!-- block interno -->
+
+
+
+       <!--- clear div para obligar que la ventana llegue al final abajo independiente del largo --->
+       <div class="clearwidth"></div>
+   </div>
+</body>

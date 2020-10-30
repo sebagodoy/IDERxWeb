@@ -1,60 +1,142 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+   <link rel="stylesheet" type="text/css" href="./WebFiles/style.css">
+</head>
 
-<!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>IDERxWeb | Web repository for IDERx tools</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="IDERxWeb" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Web repository for IDERx tools" />
-<meta property="og:description" content="Web repository for IDERx tools" />
-<link rel="canonical" href="https://sebagodoy.github.io/IDERxWeb/" />
-<meta property="og:url" content="https://sebagodoy.github.io/IDERxWeb/" />
-<meta property="og:site_name" content="IDERxWeb" />
-<script type="application/ld+json">
-{"@type":"WebSite","headline":"IDERxWeb","url":"https://sebagodoy.github.io/IDERxWeb/","description":"Web repository for IDERx tools","name":"IDERxWeb","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
+<body>
+   <div class="header">
+       <div class="LateralBox">
+           <img src="./WebFiles/Logo.png" alt="My own project logo" style="margin-bottom:10px">
+           <div class="ThisLateralList">&#x25B6 Home & tools</div>
+           <div class="LateralList">IDERx enviroment</div>
+           <a href="./WebFiles/TnR.html"><div class="LateralList">Tips & external resources</div></a>
 
-    <link rel="stylesheet" href="/IDERxWeb/assets/css/style.css?v=961e7e7598b789c620fd3403e69750429f136f9b">
-    <script src="/IDERxWeb/assets/js/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">IDERxWeb</h1>
-        <p class="header">Web repository for IDERx tools</p>
 
-        <ul>
-          
-          <li><a class="buttons github" href="https://github.com/sebagodoy/IDERxWeb">View On GitHub</a></li>
-          <li><a class="buttons github" href="https://github.com/sebagodoy/IDERxWeb">View2 On GitHub</a></li>
-        </ul>
+           <div style="margin-bottom:40px"></div>
+           <a href="https://github.com/sebagodoy/IDERx"><div class="LateralList">GitHub repository</div></a>
+           <a href="https://sites.google.com/view/carbocatudec"><div class="LateralList">CarboCat ressearch group</div></a>
+       </div>
 
-        
-          <p class="header">This project is maintained by <a class="header name" href="https://github.com/sebagodoy">sebagodoy</a></p>
-        
 
-        
-      </header>
 
-      <section>
-        <h1 id="iderxweb">IDERxWeb</h1>
-<p>Web repository for IDERx tools</p>
+        <div class="content"><!-- block interno -->
 
-      </section>
 
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
-</html>
+        <h1>Atomic simulation tools</h1>
+
+            <div class="text">
+                This page shows and explain the use of a series of several resources developed with the intention facilitate, organize and automatize
+                various commont tasks when working with some well known codes for atomistic simulation, specially the comercial code VASP
+                (link <u><a href="https://www.vasp.at/">here</a></u>).
+                The resources, tools and tips here are being created and actualized as part a my work in heterogeneous catalysis as a Phd student in
+                the <i>laboratory of Carbon and Catalysis <b>CarboCat</b></i> of the University of Concepcion (Chile). Check out our research group's
+                webpage <u><a href="https://sites.google.com/view/carbocatudec"> here!</a></u>.
+            </div>
+
+            <div class="text">
+                Now about the resources here:
+                <ul style="list-style-type:none; padding:0px; margin-top:5px">
+                    <li><b><a href="#VASPtools">&#x25B6 VASP tools</a></b>
+                        : Several small codes for simple tasks of create, edit and run common VASP input files
+                        and to analyze some output files. Mostly written in python and bash.
+                    </li>
+                    <li><b><a href="#IDERx">&#x25B6 IDERx enviroment</a></b>
+                        : A modular python enviroment to organize results from electronic structure
+                        calculations (not only VASP) including several tools to analyze results plot as well as tracking and log of running simulations.
+                    </li>
+                    <li><b><a href="./WebFiles/TnR.html">&#x25B6 Tips and external resources</a></b>
+                        : Accumulated experience on working with VASP and atomic simulations that may be of some help,
+                        links to theory and usefull resources i wish someone had show me before.
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+        <h2>Tools for VASP files</h2>
+            <div class="text">
+                All the tools here are included in the VASPtools folder at the main repository
+                <u><a href="https://github.com/sebagodoy/IDERx">https://github.com/sebagodoy/IDERx</a></u> (along with the IDERx enviroment) to download or directly clone.
+                All of these are free software(<u><a href="http://www.gnu.org/licenses/"> GNU General Public License </a></u>) and any comment or suggestion
+                would be appreciated.
+                <br>
+                Most of these are written in python 3.6.9 or bash from a begginers level of complexity, they work properly enough for being used
+                on our daily research work (on a ubuntu 16.04 enviroment) but there is plenty of room for optimization. Since these tools are a side
+                product of an ongoing work in our lab, new tools and constant actualizations are being made.
+                <br>
+                The nomenclature of most this tools is of the form <code>VASP.<i>file</i>.<a>action</a></code> refering to the kind of VASP
+                <i>file</i> they relate and some description of the intended <i>action</i>. Also, some of the codes may still have promps and comments
+                in spanish (it being my native languaje). Traduction to english promps is one of the intended tasks in queue.
+            </div>
+
+        <!--Energy-->
+        <div class="text"> <h3 id="Energy">&#x25B6 Convergence and final status: </h3> to check OUTCAR and logfiles at the end of a simulation
+            <ul style="padding-left:30px; margin-top:5px">
+                <li><code>VASP.OUTCAR.GetE0</code>: Checks converged status at the end of an OUTCAR file and the final energy withoutn entropy (sigma->0)</li>
+                <li><code>VASP.FinalCheck</code>: Checks all logfiles (from the terminal promp of the run) and OUTCAR file. Counts the <i>scp</i> steps completed in each logfile, identify
+                the type of job (IBRION tag) in the OUTCAR and its proper termination. Reports final energy (sigma->0) and dispersion D3 corrections
+                    (if available) for relaxations and single point calculations or lists the frequencies and intensities for frequency-type runs.</li>
+            </ul>
+        </div>
+
+
+        <div style="margin-bottom:20px"></div>
+        <!--Freezing POSCAR-->
+        <div class="text"><h3 id="Restrict">&#x25B6 POSCAR modification:</h3>
+            <ul style="padding-left:30px; margin-top:5px">
+                <li><code>VASP.POSCAR.Restringir</code>: If atoms in a POSCAR type file are arranged in in ascending <i>z</i> position (in VESTA: Edit>Edit data > Structural parameters),
+                    selective dynamics patterns can be quickly applied to consecutive groups of atoms like layers in the model .
+                </li>
+            </ul>
+        </div>
+
+        <!--IR frecuencies-->
+        <div class="text"><h3 id="IR">&#x25B6 IR spectroscopy:</h3> if a frecuency calculation included dipole corrections, the molecular dipole variations of the
+            modes of vibrations can be computed, wich are proportional to the IR adsoprtion peak.
+            <ul style="padding-left:30px; margin-top:5px">
+                <li><code>VASP.IR.Intensities.py</code>: Reads dipole corrections (if available) from OUTCAR in each displacement of a frequency
+                calculation, computes IR peak intensities, generates an IR spectra image with lawrentzian broadening.</li>
+                <li><code>VASP.IR.cat.py</code>: Compiles the IR spectra from various logfiles produced by VASP.IR.Intensities.py to compile on a single
+                spectra plot.</li>
+
+            </ul>
+        </div>
+
+
+        <!-- neb -->
+        <div class="text"><h3 id="neb">&#x25B6 neb and dimmer construction and analysis: </h3> nudget elastic band (neb) types of runs require a serie of geometry files
+            in the reaction coordinate from stable initial and final geometries. A couple tools to construct these interpolated geometries are:
+            <ul style="padding-left:30px; margin-top:5px">
+                <li><code>VASP.neb.Lineal.py</code>: produces linearly interpolated geometries for a neb run from an initial POSCAR_1 and final POSCAR_2 files.</li>
+                <li><code>VASP.neb.Curved.py</code>: From an initial, final and an estimated TS geometries, this code will parabolically interpolate and try tro generate
+                n equidistant geometries for a neb calculation. Selective dynamics are taken from the estimated TS file</li>
+            </ul>
+
+            Dimer calculations using the VTST tools (<u><a href="https://theory.cm.utexas.edu/vtsttools/">Link here!</a></u>) start using a POSCAR and MODECAR files
+            for atomic positions in the estimated transition state (TS) geometry and its and reaction coordinate direction, respectivelly. The restricted relaxation
+            produces the equivalent CENTCAR geometry and NEWMODECAR direction files.
+
+            <ul style="padding-left:30px; margin-top:5px">
+                <li><code>VASP.CENTCAR.Desplaza.py</code>: will produce geometry files displaced from a central position (CENTCAR, POSCAR or CONTCAR) in the direction
+                    defined by the MODECAR or NEWMODECAR. Usefull to check if a dimer calculation is pointing in the intended reaction coordinate. The resulting files
+                    can be quickly reviewed using <code>VESTA CONTCAR_*</code>.</li>
+
+            </ul>
+
+            The process of converge and confirm a transition state geometry can be dificult and tedious, some advice is given in the Tips $& External resources
+            of this page.
+
+        </div>
+
+
+
+
+
+      </div><!-- block interno -->
+
+
+
+       <!--- clear div para obligar que la ventana llegue al final abajo independiente del largo --->
+       <div class="clearwidth"></div>
+   </div>
+</body>
