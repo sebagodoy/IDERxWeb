@@ -5,10 +5,10 @@
 <body>
    <div class="header">
        <div class="LateralBox">
-           <img src="./WebFiles/Logo.png" alt="My own project logo" style="margin-bottom:10px">
+           <img src="./WebFiles/Logo.png" alt="IDERx logo, please charge!" style="margin-bottom:10px">
            <div class="ThisLateralList">&#x25B6 Home & tools</div>
-           <div class="LateralList">IDERx enviroment</div>
-           <a href="./WebFiles/TnR.html"><div class="LateralList">Tips & external resources</div></a>
+           <a href="./WebFiles/IDERx.html"> <div class="LateralList">IDERx enviroment</div></a>
+           <a href="./WebFiles/TnR.html">   <div class="LateralList">Tips & external resources</div></a>
 
 
            <div style="margin-bottom:40px"></div>
@@ -108,23 +108,40 @@
             in the reaction coordinate from stable initial and final geometries. A couple tools to construct these interpolated geometries are:
             <ul style="padding-left:30px; margin-top:5px">
                 <li><code>VASP.neb.Lineal.py</code>: produces linearly interpolated geometries for a neb run from an initial POSCAR_1 and final POSCAR_2 files.</li>
+
                 <li><code>VASP.neb.Curved.py</code>: From an initial, final and an estimated TS geometries, this code will parabolically interpolate and try tro generate
                 n equidistant geometries for a neb calculation. Selective dynamics are taken from the estimated TS file</li>
+
+                <li><code>VASP.neb2XDATCAR.py</code>: Invoqued from  neb folder it generates a XDATCAR type of file called neb2movie_XDATCAR5 containing the sequence of
+                    images in the neb 00/ 01/,  ... folders. The vile can be opened with VMD (<u><a href="./WebFiles/TnR.html#Software">check this</a></u>) as a movie of the reaction path, which is very useful
+                    to quickly check that the neb path represents the intended reaction step after (default option) or before (enter "CONTCAR" when asked the filename) the run.
+
+                <li><code>VASP.neb2POSCAR.py</code>: Invoqued from  neb folder it will produce a POSCAR-like file that includes the positions of the relaxed atoms in each
+                    one of the images in 00/,  01/,  ... folders. It may help visualize some neb paths but it may (more often than not) render a crowded image not
+                    very usefull, generating a neb movie with <code>VASP.neb2XDATCAR.py</code> to visualize with VMD could be a better option. By default it uses the
+                    initial POSCAR images but "CONTCAR" can be requested when asken about filenames to use the end-of-the-run geometries.
             </ul>
+
 
             Dimer calculations using the VTST tools (<u><a href="https://theory.cm.utexas.edu/vtsttools/">Link here!</a></u>) start using a POSCAR and MODECAR files
             for atomic positions in the estimated transition state (TS) geometry and its and reaction coordinate direction, respectivelly. The restricted relaxation
             produces the equivalent CENTCAR geometry and NEWMODECAR direction files.
 
             <ul style="padding-left:30px; margin-top:5px">
-                <li><code>VASP.CENTCAR.Desplaza.py</code>: will produce geometry files displaced from a central position (CENTCAR, POSCAR or CONTCAR) in the direction
-                    defined by the MODECAR or NEWMODECAR. Usefull to check if a dimer calculation is pointing in the intended reaction coordinate. The resulting files
-                    can be quickly reviewed using <code>VESTA CONTCAR_*</code>.</li>
+                <li><code>VASP.CENTCAR.Desplaza.py</code>: Usefull to check if a
+                    dimer calculation is pointing in the intended reaction coordinate. Called from the neb folder, this code will generate a XDATCAR-like containing
+                    a sequence of geometries displaced from a central configuration (CENTCAR by default, but accepts POSCAR or CONTCAR-like files) in the direction
+                    defined by a MODECAR-like file (NEWMODECAR by default, but MODECAR can be entered when asked). If you choose not to erase the individual images,
+                    CONTCAR files of the displaced images will be kept in the neb folder, their sequence can be quickly reviewed using <code>VESTA CONTCAR_*</code>.
+                    <br>
+                    Note this code's promp is in spanish, translating it is one of the (many)
+                    pending tasks.</li>
 
             </ul>
 
-            The process of converge and confirm a transition state geometry can be dificult and tedious, some advice is given in the Tips $& External resources
+            The process of converge and confirm a transition state geometry can be dificult and tedious, some advice is given in the Tips & External resources
             of this page.
+            <br><br><br><br>
 
         </div>
 
