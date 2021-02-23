@@ -6,8 +6,8 @@
    <div class="header">
        <div class="LateralBox">
            <img src="../WebFiles/Logo.png" alt="My own project logo" style="margin-bottom:10px">
-           <a href="../index.html"><div class="LateralList">Home & Tools</div></a>
-           <div class="LateralList">IDERx enviroment</div>
+           <a href="../index.html"> <div class="LateralList">Home & Tools</div></a>
+           <a href="./IDERx.html">  <div class="LateralList">IDERx enviroment</div></a>
            <div class="ThisLateralList"> &#x25B6 Tips & external resources</div>
                 <a href="#Tips">        <div class="LateralSubList">General advice</div></a>
                 <a href="#Software">    <div class="LateralSubList">Recomended free software</div></a>
@@ -22,6 +22,10 @@
         <div class="content"><!-- block interno -->
 
             <h1>Tips & external resources </h1>
+
+            <!-- Space between sections -->
+            <div style="margin-bottom:20px"></div>
+
 
             <!-- ################################ General advice ################################ -->
             <h3 id="Tips"> &#x25B6 General advice </h3>
@@ -38,12 +42,16 @@
 
             <!-- rsync -->
             <div class="text">
-                &#x25AC For sending and receiving multiple and large files to a remote location (such as account@cluster.com/folder/ in a cluster)
+                &#x25AC For sending and receiving multiple and large files to a remote location (such as account@direction.com/folder/ in a cluster)
                 <code>rsync -azvP</code> is good option in terms of speed and
                 clarity. Opening a terminal from a local folder, files will can be "sincronized" with the remote folder with
                 <code>rsync -azvP send_direction/ receiving_direction/</code> where the sender and receiving direction may be local (e.g. <code>./local_folder</code>)
-                or remote directions (e.g. <code>user@cluster.direction.com:/my_folders/</code>). Ending the sending direction in <code>/</code> only the contents of
-                the folder will be considered, without it the folder and itts contents will be syncronized.<br>
+                or remote directions (e.g. <code>user@direction.com:/my_folders/</code>). Ending the sending direction in <code>/</code> only the contents of
+                the folder will be considered, without it the folder and itts contents will be syncronized.
+                <br>
+                Be warry than additional tags may be useful/required for safe/efficient transfer, ask the personel in chargue of the remote location if they
+                recomend something else.
+                <br>
                 Multiple <code>--exclude 'FileName'</code> options after the <code>-azvP</code> allow to sincronize all files and folders except
                 the specified <code>'FileName'</code>. It is extremelly useful for downloading all folders and
                 files of a neb run except the larger CHG, CHGCAR and WAVECAR using a wildcard filedirection, i.e.
